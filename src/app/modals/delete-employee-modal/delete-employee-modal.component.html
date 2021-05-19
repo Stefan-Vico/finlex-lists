@@ -1,0 +1,49 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <h5 class="modal-title">Delete User: {{ employee_name }}</h5>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="close()"
+    ></button>
+  </div>
+  <div class="modal-body">
+    <p class="modal-text">
+      Are you sure you want to delete {{ employee_name }}
+    </p>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      [disabled]="loading"
+      class="btn btn-secondary"
+      (click)="close()"
+    >
+      No
+    </button>
+    <button
+      type="button"
+      [disabled]="loading"
+      class="btn btn-primary"
+      (click)="closeConfirm()"
+    >
+      Yes
+      <span
+        *ngIf="loading"
+        class="spinner-border spinner-border-sm ml-3"
+        role="status"
+        aria-hidden="true"
+      ></span>
+    </button>
+    <div *ngIf="error" class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <div class="alert alert-danger" role="alert" data-mdb-color="danger">
+            {{ error }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

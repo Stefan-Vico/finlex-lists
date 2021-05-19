@@ -1,0 +1,23 @@
+<div class="container home">
+  <button
+    type="button"
+    class="btn btn-secondary add-new-user"
+    (click)="addNewUser()"
+  >
+    <i class="fas fa-plus fa-lg"></i>
+  </button>
+  <div class="row p-4 mt-4 mb-4">
+    <app-spinner *ngIf="loading"></app-spinner>
+
+    <div *ngIf="error" class="col-12 text-center">
+      <div class="alert alert-danger" role="alert" data-mdb-color="danger">
+        {{ error }}
+      </div>
+    </div>
+    <ng-container *ngFor="let employee of allEmployees">
+      <div class="col-8 offset-2 mb-2 mt-2">
+        <app-employee-card [employeeData]="employee"></app-employee-card>
+      </div>
+    </ng-container>
+  </div>
+</div>

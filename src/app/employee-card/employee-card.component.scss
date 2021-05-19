@@ -1,0 +1,21 @@
+.card {
+    .actions {
+        transition: visibility 0.3s linear, opacity 0.3s linear;
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    .delete-employee,
+    .edit-employee {
+        cursor: pointer;
+        margin: 10px;
+    }
+
+    &:hover {
+        .actions {
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+
+}

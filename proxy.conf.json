@@ -1,0 +1,10 @@
+{
+    "/api/v1/*": {
+        "target": "http://dummy.restapiexample.com",
+        "pathRewrite": {
+            "^/api/v1/": "/api/v1/"
+        },
+        "secure": false,
+        "changeOrigin": true
+    }
+}

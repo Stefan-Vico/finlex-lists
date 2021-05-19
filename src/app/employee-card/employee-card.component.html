@@ -1,0 +1,32 @@
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title d-flex justify-content-between">
+      {{ employeeData.employee_name }}
+      <span class="actions">
+        <span class="delete-employee" (click)="openModalDelete()"
+          ><i class="far fa-trash-alt"></i
+        ></span>
+        <span class="edit-employee" (click)="openModalEdit()"
+          ><i class="far fa-edit"></i
+        ></span>
+      </span>
+    </h5>
+    <div class="container p-0 mb-2 mt-2">
+      <div class="row">
+        <div class="col-12">
+          <span>Employee salary: {{ employeeData.employee_salary }}</span>
+        </div>
+        <div class="col-12">
+          <span>Employee age: {{ employeeData.employee_age }}</span>
+        </div>
+      </div>
+    </div>
+    <button
+      type="button"
+      class="btn btn-primary float-end"
+      (click)="openModal()"
+    >
+      View Details
+    </button>
+  </div>
+</div>

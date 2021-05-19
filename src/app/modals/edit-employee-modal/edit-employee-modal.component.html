@@ -1,0 +1,108 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <h5 class="modal-title">Create new user</h5>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="close()"
+    ></button>
+  </div>
+  <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+    <div class="modal-body">
+      <div class="row">
+        <div class="col-md-12 p-3">
+          <mdb-form-control>
+            <input
+              [mdbValidate]="true"
+              mdbInput
+              type="text"
+              id="name"
+              class="form-control"
+              formControlName="name"
+              required
+            />
+            <label mdbLabel class="form-label" for="name">Employee name</label>
+            <mdb-error *ngIf="name?.invalid && (name?.dirty || name?.touched)"
+              >Employee name is required</mdb-error
+            >
+            <mdb-success *ngIf="name?.valid && (name?.dirty || name?.touched)"
+              >Looks good!</mdb-success
+            >
+          </mdb-form-control>
+        </div>
+
+        <div class="col-md-12 p-3">
+          <mdb-form-control>
+            <input
+              [mdbValidate]="true"
+              mdbInput
+              type="text"
+              id="salary"
+              class="form-control"
+              formControlName="salary"
+              required
+            />
+            <label mdbLabel class="form-label" for="salary"
+              >Employee salary</label
+            >
+            <mdb-error
+              *ngIf="salary?.invalid && (salary?.dirty || salary?.touched)"
+              >Employee salary is required</mdb-error
+            >
+            <mdb-success
+              *ngIf="salary?.valid && (salary?.dirty || salary?.touched)"
+              >Looks good!
+            </mdb-success>
+          </mdb-form-control>
+        </div>
+
+        <div class="col-md-12 p-3">
+          <mdb-form-control>
+            <input
+              [mdbValidate]="true"
+              mdbInput
+              type="text"
+              id="age"
+              class="form-control"
+              formControlName="age"
+              required
+            />
+            <label mdbLabel class="form-label" for="age">Employee age</label>
+            <mdb-error *ngIf="age?.invalid && (age?.dirty || age?.touched)"
+              >Employee age is required
+            </mdb-error>
+            <mdb-success *ngIf="age?.valid && (age?.dirty || age?.touched)"
+              >Looks good!</mdb-success
+            >
+          </mdb-form-control>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button [disabled]="loading" class="btn btn-primary">
+        Create User
+        <span
+          *ngIf="loading"
+          class="spinner-border spinner-border-sm ml-3"
+          role="status"
+          aria-hidden="true"
+        ></span>
+      </button>
+      <div *ngIf="error" class="container">
+        <div class="row">
+          <div class="col-12 text-center">
+            <div
+              class="alert alert-danger"
+              role="alert"
+              data-mdb-color="danger"
+            >
+              {{ error }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
